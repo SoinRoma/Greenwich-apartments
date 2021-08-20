@@ -7,6 +7,7 @@ $(document).ready(function () {
   const flatPath = $(".flats path");
   const flatLink = $(".flat-link");
   const viewFlats = $(".view-flats");
+  const toggleButton = $(".toggleButton");
   let currentFloor = 2;
   let currentFlat = 1;
   let currentLinkFlat = 1;
@@ -49,6 +50,7 @@ $(document).ready(function () {
   // Открытие и закрытие модального окна
   floorPath.on("click", toпgleModal);
   viewFlats.on("click", toпgleModal);
+  toggleButton.on("click", toпgleModal);
   modalCloseButton.on("click", toпgleModal);
 
   // Функция при наведении на квартиру

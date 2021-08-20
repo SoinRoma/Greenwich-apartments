@@ -16,25 +16,30 @@
 <body>
   <header class="header">
     <div class="navbar">
-      <a href="./index.html" class="logo">
-        <img src="img/greenwich-logo.svg" alt="Логотип">
-      </a>
-      <nav class="navbar-nav">
+      <div class="logotip">
+        <a href="./index.html" class="logo">
+          <img src="svg/greenwich-logo.svg" alt="Логотип">
+        </a>
+      </div>
+      <div class="navbar-nav">
         <ul class="navbar-menu">
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">Подобрать <br> квартиру</a>
+          <li class="navbar-item toggleButton">
+            <button class="navbar-link">Подобрать <br> квартиру</button>
+          </li>
+          <li class="navbar-item ">
+            <button onclick="window.location.href='https://gh.uz/greenwich/' " class="navbar-link">Забронировать <br>
+              квартиру</button>
+          </li>
+          <li class="navbar-item ">
+            <button onclick="window.location.href='https://gh.uz/events/' " class="navbar-link">Акции <br>
+              компании</button>
           </li>
           <li class="navbar-item">
-            <a href="#" class="navbar-link">Забронировать <br> квартиру</a>
-          </li>
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">Ход <br> строительства</a>
-          </li>
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">Проектная <br> декларация</a>
+            <button class="navbar-link">Проектная
+              <br> декларация</button>
           </li>
         </ul>
-      </nav>
+      </div>
       <div class="navbar-contacts">
         <span class="navbar-text">Закажите звонок:</span>
         <a class="navbar-phone" href="tel: +998909431832">+998 (90) 943-18-32</a>
@@ -94,11 +99,11 @@
       <h2 class="main-title">Выберите желаемый этаж</h2>
       <div class="counter-group">
         <button class="counter-button counter-up">
-          <img class="counter-arrow counter-arrow-up" src="img/arrow.svg" alt="arrow-up">
+          <img class="counter-arrow counter-arrow-up" src="svg/arrow.svg" alt="arrow-up">
         </button>
         <span class="floor-counter counter">02</span>
         <button class="counter-button counter-down">
-          <img class="counter-arrow counter-arrow-down" src="img/arrow.svg" alt="arrow-down">
+          <img class="counter-arrow counter-arrow-down" src="svg/arrow.svg" alt="arrow-down">
         </button>
       </div>
       <button class="button button-primary view-flats">Смотреть квартиры на этаже</button>
@@ -117,18 +122,20 @@
           <a class="footer-phone" href="tel: +998909431832">+998 (90) 943-18-32</a>
         </div>
         <div class="footer-social-links">
-          <a href="#" class="social-link"><img src="img/facebook.svg" alt="facebook"></a>
-          <a href="#" class="social-link"><img src="img/instagram.svg" alt="instagram"></a>
-          <a href="#" class="social-link"><img src="img/twitter.svg" alt="twitter"></a>
-          <a href="#" class="social-link"><img src="img/youtube.svg" alt="youtube"></a>
+          <a href="https://www.facebook.com/goldenhouseuz/" class="social-link"><img src="svg/facebook.svg"
+              alt="facebook"></a>
+          <a href="https://www.instagram.com/goldenhouseuz/" class="social-link"><img src="svg/instagram.svg"
+              alt="instagram"></a>
+          <a href="https://www.youtube.com/channel/UCcKZe-zV3TWjmrfGWrl-1uw" class="social-link"><img
+              src="svg/youtube.svg" alt="youtube"></a>
         </div>
 
       </div>
       <!-- /.left -->
       <div class="right">
-        <p class="footer-alert">Политика конфиденциальности</p>
-        <p class="footer-alert">Публичная оферта</p>
-        <p class="footer-alert">Контакты</p>
+        <a href="https://gh.uz/news/" class="footer-alert">Новости</a>
+        <a href="https://gh.uz/company/" class="footer-alert">О нас</a>
+        <a href="https://gh.uz/contact/" class="footer-alert">Контакты</a>
       </div>
       <!-- /.right -->
     </div>

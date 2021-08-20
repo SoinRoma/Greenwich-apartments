@@ -16,8 +16,8 @@ body{
 }
 
 .header{
-  padding-top: 12px;
-  padding-bottom: 12px;
+  /* padding-top: 12px;
+  padding-bottom: 12px; */
   background-color: #635854;
   border-bottom: 4px solid #FFBD00;
   box-sizing: border-box; 
@@ -38,17 +38,31 @@ body{
   list-style: none;
   display: flex;
   text-align: center;
- 
 }
 
 .navbar-item{
-  margin-left: 40px;
-  margin-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.navbar-item:hover {
+  background: #FFBD00;
+}
+
+.navbar-item:hover .navbar-link{
+  background: #FFBD00;
 }
 
 .navbar-link{
   text-decoration: none;
   color: #fff;
+  border: none;
+  background-color: #635854;
+  cursor: pointer;
 }
 
 .navbar-contacts{
