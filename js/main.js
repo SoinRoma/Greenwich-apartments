@@ -1,72 +1,79 @@
 $(document).ready(function () {
+
   const counterUp = $(".counter-up");
   const counterDown = $(".counter-down");
-  const floorPath = $(".home-image path");
   const modal = $(".modal");
   const modalCloseButton = $(".modal-close");
+  const toggleButton = $(".toggleButton");
+  const floorPath = $(".home-image path");
   const flatPath = $(".flats path");
   const flatLink = $(".flat-link");
   const viewFlats = $(".view-flats");
-  const toggleButton = $(".toggleButton");
+
   let currentFloor = 2;
   let currentFlat = 1;
   let currentLinkFlat = 1;
 
+  // Функция изменения номера этажа при прибавлении или уменьшении
+  function changeNumber() {
+    usCurrentFloor = currentFloor.toLocaleString("en-Us", { minimumIntegerDigits: 2, useGrouping: false });
+    $(".counter").text(usCurrentFloor);
+    floorPath.removeClass("current-floor");
+    $(`[data-floor=${usCurrentFloor}]`).toggleClass("current-floor");
+  }
+
   // Функция при наведении на этаж
   floorPath.on("mouseover", function () {
-    floorPath.removeClass("current-floor");
     currentFloor = $(this).attr("data-floor");
-    $(".counter").text(currentFloor);
-    usCurrentFloor = currentFloor.toLocaleString("en-Us", { minimumIntegerDigits: 2, useGrouping: false });
-    $(`[data-floor=${usCurrentFloor}]`).toggleClass("current-floor");
+    changeNumber();
   });
 
-  // Функция на прибавления
+  // Функция на прибавление
   counterUp.on("click", function () {
     if (currentFloor < 18) {
       currentFloor++;
-      usCurrentFloor = currentFloor.toLocaleString("en-Us", { minimumIntegerDigits: 2, useGrouping: false });
-      $(".counter").text(usCurrentFloor);
-      floorPath.removeClass("current-floor");
-      $(`[data-floor=${usCurrentFloor}]`).toggleClass("current-floor");
+      changeNumber();
     }
   });
 
-  // Функция на уменьшения
+  // Функция на уменьшение
   counterDown.on("click", function () {
     if (currentFloor > 2) {
       currentFloor--;
-      usCurrentFloor = currentFloor.toLocaleString("en-Us", { minimumIntegerDigits: 2, useGrouping: false });
-      $(".counter").text(usCurrentFloor);
-      floorPath.removeClass("current-floor");
-      $(`[data-floor=${usCurrentFloor}]`).toggleClass("current-floor");
+      changeNumber();
     }
   })
 
-  function toпgleModal() {
+  // Открытие и закрытие модального окна
+  function toggleModal() {
     modal.toggleClass("is-open");
   };
 
-  // Открытие и закрытие модального окна
-  floorPath.on("click", toпgleModal);
-  viewFlats.on("click", toпgleModal);
-  toggleButton.on("click", toпgleModal);
-  modalCloseButton.on("click", toпgleModal);
+  floorPath.on("click", toggleModal);
+  viewFlats.on("click", toggleModal);
+  toggleButton.on("click", toggleModal);
+  modalCloseButton.on("click", toggleModal);
 
-  // Функция при наведении на квартиру
-  flatPath.on("mouseover", function () {
+  // Удаление классов
+  function removeClass() {
     flatPath.removeClass("current-flat");
     flatLink.removeClass("flatLinkHover");
+  }
+
+  // Функция при наведении на квартиру на схеме
+  flatPath.on("mouseover", function () {
+    removeClass();
     currentFlat = $(this).attr("data-flat");
+    $(`[data-flat=${currentFlat}]`).toggleClass("current-flat");
     $(`[data-textFlat=${currentFlat}]`).toggleClass("flatLinkHover");
   });
 
-  // Функция пр наведения на ссылку на квартиру
+  // Функция при наведения на ссылку на квартиру
   flatLink.on("mouseover", function () {
-    flatPath.removeClass("current-flat");
-    flatLink.removeClass("flatLinkHover");
+    removeClass();
     currentLinkFlat = $(this).attr("data-textFlat");
     $(`[data-flat=${currentLinkFlat}]`).toggleClass("current-flat");
+    $(`[data-textFlat=${currentLinkFlat}]`).toggleClass("flatLinkHover");
   });
 
 });
